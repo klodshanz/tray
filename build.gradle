@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id "edu.sc.seis.launch4j" version "2.4.6"
+}
+
+group 'org.bitsome'
+version '1.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // https://mvnrepository.com/artifact/net.java.dev.jna/jna
+    compile group: 'net.java.dev.jna', name: 'jna', version: '5.6.0'
+}
+
+launch4j {
+    mainClassName = 'TrayMain'
+    icon = "${projectDir}/src/main/resources/images/tray.ico"
+    bundledJrePath = '%JAVA_HOME%'
+}
+
+task distribute(type: Copy) {
+    dependsOn createExe
+    from file("$buildDir/launch4j")
+    into file("P:/tray")
+}
+
