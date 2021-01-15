@@ -36,7 +36,7 @@ public class StatusView extends JComponent implements TrackerListener {
 
         Graphics2D g2 = (Graphics2D) g;
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g2.setFont(getFont());
+        g2.setFont(Config.getInstance().FONT_WINDOW);
 
         FontMetrics fm = g2.getFontMetrics();
 
@@ -57,7 +57,7 @@ public class StatusView extends JComponent implements TrackerListener {
         int textHeight = fm.getAscent() - fm.getDescent();
         int width = fm.stringWidth(text);
         int textX = getWidth() - width;
-        int textY = (getHeight() - textHeight) / 2 + textHeight;
+        int textY = (getHeight() - textHeight) / 2 + textHeight + 3;
         g2.drawString(text, textX, textY);
 
         // Paint Number of Weeks

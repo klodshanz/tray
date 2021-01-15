@@ -9,6 +9,7 @@ public class Week {
     private static int MINUTES_PER_DAY = 474;
     private static int MINUTES_PER_WEEK = MINUTES_PER_DAY * 5;
 
+
     private String name;
     private Day[] days;
     private Calendar c = new GregorianCalendar(new Locale("da", "DK"));
@@ -16,18 +17,23 @@ public class Week {
     private int simulatedSpan, simulatedDiff;
     private int dayCount = 0;
 
-    public Week(String name, ArrayList<String> stamps) {
-        days = new Day[7];
-        days[0] = new Day("Mandag");
-        days[1] = new Day("Tirsdag");
-        days[2] = new Day("Onsdag");
-        days[3] = new Day("Torsdag");
-        days[4] = new Day("Fredag");
-        days[5] = new Day("Lørdag");
-        days[6] = new Day("Søndag");
-        this.name = name;
-        initializeDays();
-        parse(stamps);
+    public Week(String name, ArrayList<String> stamps)  {
+
+        try {
+            days = new Day[7];
+            days[0] = new Day("Mandag");
+            days[1] = new Day("Tirsdag");
+            days[2] = new Day("Onsdag");
+            days[3] = new Day("Torsdag");
+            days[4] = new Day("Fredag");
+            days[5] = new Day("Lørdag");
+            days[6] = new Day("Søndag");
+            this.name = name;
+            initializeDays();
+            parse(stamps);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     private void initializeDays() {

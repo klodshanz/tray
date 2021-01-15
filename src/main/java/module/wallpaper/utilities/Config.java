@@ -93,7 +93,6 @@ public class Config {
 
     private Config() {
         font = loadFont("agel____.pfb",Font.TYPE1_FONT,64F);
-//        FONT_ICON = loadFont("OpenSansCondensed-Bold.ttf", Font.TRUETYPE_FONT,16f);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         width = (int)screenSize.getWidth();
         height = (int)screenSize.getHeight();

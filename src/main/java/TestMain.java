@@ -8,8 +8,8 @@ public class TestMain {
         /////////////////////////////////////////////////////////////////////////////////////
         //new TrayMain().runProduction(args);
         /////////////////////////////////////////////////////////////////////////////////////
-        //new TestMain().runTracker();
-        new TestMain().runWallpaper();
+        new TestMain().runTracker();
+//        new TestMain().runWallpaper();
         //new TestMain().runMisc();
     }
 

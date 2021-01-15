@@ -57,7 +57,7 @@ public class TrackerFrame extends JFrame {
         });
         setBackground(Config.getInstance().COLOR_WINDOW_BACKGROUND);
         setIconImage(new TrayDateIconImage());
-//        setUndecorated(true);
+        setUndecorated(true);
 
         addKeyListener(new KeyAdapter() {
             @Override
@@ -101,6 +101,7 @@ public class TrackerFrame extends JFrame {
 
         JPanel top = new JPanel(new BorderLayout());
         top.setBorder(BorderFactory.createEmptyBorder(10, 10, 0, 10));
+//        top.setBorder(BorderFactory.createLineBorder(Color.RED));
         top.setBackground(Config.getInstance().COLOR_WINDOW_BACKGROUND);
         top.setOpaque(true);
 

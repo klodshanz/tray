@@ -29,7 +29,7 @@ public class WeekView extends JComponent implements TrackerListener {
         FontMetrics fm = g2.getFontMetrics();
         int textHeight = fm.getAscent() - fm.getDescent();
         int textX = 0;
-        int textY = (getHeight() - textHeight) / 2 + textHeight;
+        int textY = (getHeight() - textHeight) / 2 + textHeight + 2;
         g2.drawString(model.getWeek().getName(), textX, textY);
     }
 
@@ -57,7 +57,7 @@ public class WeekView extends JComponent implements TrackerListener {
             Graphics2D g2 = (Graphics2D) getGraphics();
             g2.setFont(Config.getInstance().FONT_WINDOW);
             FontMetrics fm = g2.getFontMetrics();
-            dimension = new Dimension(fm.stringWidth("3333-333"), fm.getAscent() - fm.getDescent());
+            dimension = new Dimension(fm.stringWidth("3333-333"), fm.getAscent() - fm.getDescent() + 16);
         }
         return dimension;
     }

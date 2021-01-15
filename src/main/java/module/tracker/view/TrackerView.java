@@ -141,7 +141,7 @@ public class TrackerView extends JComponent implements TrackerListener {
 
         int textHeight = fm.getAscent() - fm.getDescent();
         int textX = M;
-        int textY = (dy - textHeight) / 2 + textHeight;
+        int textY = (dy - textHeight) / 2 + textHeight + 2;
         String text = "Samlet";
         g2.setPaint(COLOR_TOTAL_TEXT);
         g2.drawString(text, textX, textY);
@@ -192,10 +192,11 @@ public class TrackerView extends JComponent implements TrackerListener {
 
     private void loadFont() {
         try {
-            InputStream is = getClass().getClassLoader().getResourceAsStream("Aller_Bd.ttf");
+            InputStream is = getClass().getClassLoader().getResourceAsStream("fonts/Aller_Bd.ttf");
             Font base = Font.createFont(Font.TRUETYPE_FONT, is);
             is.close();
-            font = base.deriveFont(22F);
+            font = base.deriveFont(26F);
+            //font = new Font("Calibri", Font.BOLD, 28);
         } catch (Exception ex) {
             font = new Font("Trebuchet MS", Font.BOLD, 20);
         }

@@ -30,3 +30,6 @@ task distribute(type: Copy) {
     into file("P:/tray")
 }
 
+tasks.withType(JavaCompile) {
+    options.encoding = "utf-8" // adapt as necessary
+}
