@@ -54,14 +54,12 @@ public class TrayDateApplication {
         PopupMenu popup = new PopupMenu();
 
         MenuItem item = new MenuItem("Edit Week");
-        item.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    String currentWeek = Config.getInstance().getFilename(Config.getInstance().DIR_STAMPS, Time.getWeek());
-                    Runtime.getRuntime().exec("C:\\Program Files\\Sublime Text\\sublime_text.exe " + currentWeek);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
+        item.addActionListener(e -> {
+            try {
+                String currentWeek = Config.getInstance().getFilename(Config.getInstance().DIR_STAMPS, Time.getWeek());
+                Runtime.getRuntime().exec("C:\\Program Files\\Sublime Text\\sublime_text.exe " + currentWeek);
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
         });
         popup.add(item);
@@ -69,39 +67,33 @@ public class TrayDateApplication {
         popup.addSeparator();
 
         MenuItem itemStampPair = new MenuItem("Stamp Pair");
-        itemStampPair.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    Dao dao = new Dao();
-                    dao.stamp(false);
-                    dao.stamp(true);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
+        itemStampPair.addActionListener(e -> {
+            try {
+                Dao dao = new Dao();
+                dao.stamp(false);
+                dao.stamp(true);
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
         });
         popup.add(itemStampPair);
 
         MenuItem itemStampStop = new MenuItem("Stamp Stop");
-        itemStampStop.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    new Dao().stamp(false);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
+        itemStampStop.addActionListener(e -> {
+            try {
+                new Dao().stamp(false);
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
         });
         popup.add(itemStampStop);
 
         MenuItem itemStampStart = new MenuItem("Stamp Start");
-        itemStampStart.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    new Dao().stamp(true);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
+        itemStampStart.addActionListener(e -> {
+            try {
+                new Dao().stamp(true);
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
         });
         popup.add(itemStampStart);
@@ -109,32 +101,22 @@ public class TrayDateApplication {
         popup.addSeparator();
 
         item = new MenuItem("Wallpaper");
-        item.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                mainWallpaper.run();
-            }
-        });
+        item.addActionListener(e -> mainWallpaper.run());
         popup.add(item);
         item = new MenuItem("Wallpaper (force)");
-        item.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                mainWallpaper.runForce();
-            }
-        });
+        item.addActionListener(e -> mainWallpaper.runForce());
         popup.add(item);
 
         popup.addSeparator();
 
         item = new MenuItem("Shutdown");
-        item.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    new Dao().stamp(false);
-                    Runtime rt = Runtime.getRuntime();
-                    rt.exec("shutdown.exe -s -t 0");
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
+        item.addActionListener(e -> {
+            try {
+                new Dao().stamp(false);
+                Runtime rt = Runtime.getRuntime();
+                rt.exec("shutdown.exe -s -t 0");
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
         });
         popup.add(item);
@@ -142,11 +124,9 @@ public class TrayDateApplication {
         popup.addSeparator();
 
         item = new MenuItem("Exit");
-        item.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                new Dao().stamp(false);
-                System.exit(0);
-            }
+        item.addActionListener(e -> {
+            new Dao().stamp(false);
+            System.exit(0);
         });
         popup.add(item);
 
