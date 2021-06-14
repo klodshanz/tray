@@ -69,6 +69,9 @@ public class Config {
     public Color COLOR_ICON_BACKGROUND = new Color(0xFFFFFF);
     public Color COLOR_ICON_FRAME = new Color(0x476add);
     public Color COLOR_ICON_TEXT = new Color(0x800000);
+//    public Color COLOR_ICON_BACKGROUND = new Color(0x800000);
+//    public Color COLOR_ICON_FRAME = new Color(0xF5FF69);
+//    public Color COLOR_ICON_TEXT = new Color(0xFFFFFF);
     public Color COLOR_WINDOW_BACKGROUND = new Color(0xd4d0c8);
     public Integer WINDOW_MARGIN = 8;
     public Integer WINDOW_INNER_MARGIN = 3;
@@ -92,7 +95,7 @@ public class Config {
     }
 
     private Config() {
-        font = loadFont("agel____.pfb",Font.TYPE1_FONT,64F);
+        font = loadFont("fonts/agel____.pfb",Font.TYPE1_FONT,64F);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         width = (int)screenSize.getWidth();
         height = (int)screenSize.getHeight();

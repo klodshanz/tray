@@ -58,13 +58,55 @@ public class TrayDateApplication {
             public void actionPerformed(ActionEvent e) {
                 try {
                     String currentWeek = Config.getInstance().getFilename(Config.getInstance().DIR_STAMPS, Time.getWeek());
-                    Runtime.getRuntime().exec("notepad.exe " + currentWeek);
+                    Runtime.getRuntime().exec("C:\\Program Files\\Sublime Text\\sublime_text.exe " + currentWeek);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
             }
         });
         popup.add(item);
+
+        popup.addSeparator();
+
+        MenuItem itemStampPair = new MenuItem("Stamp Pair");
+        itemStampPair.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Dao dao = new Dao();
+                    dao.stamp(false);
+                    dao.stamp(true);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+        popup.add(itemStampPair);
+
+        MenuItem itemStampStop = new MenuItem("Stamp Stop");
+        itemStampStop.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    new Dao().stamp(false);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+        popup.add(itemStampStop);
+
+        MenuItem itemStampStart = new MenuItem("Stamp Start");
+        itemStampStart.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    new Dao().stamp(true);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+        popup.add(itemStampStart);
+
+        popup.addSeparator();
 
         item = new MenuItem("Wallpaper");
         item.addActionListener(new ActionListener() {
