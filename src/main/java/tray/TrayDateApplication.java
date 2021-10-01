@@ -12,6 +12,8 @@ import java.awt.event.ActionEvent;
 
 import module.wallpaper.MainWallpaper;
 
+import javax.swing.*;
+
 public class TrayDateApplication {
     private TrayIcon trayIcon;
     private Mediator mediator;
@@ -81,7 +83,7 @@ public class TrayDateApplication {
         MenuItem itemStampStop = new MenuItem("Stamp Stop");
         itemStampStop.addActionListener(e -> {
             try {
-                new Dao().stamp(false);
+                new TrayDatePauseWindow().run();
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
